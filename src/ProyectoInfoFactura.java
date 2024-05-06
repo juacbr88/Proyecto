@@ -53,15 +53,12 @@ public class ProyectoInfoFactura {
                 "VF001-00179120548320101", "VF001-00179120548320101", "VF001-00179120548320101", "CF001-02076320516827425", "CF001-02076320516827425",
                 "VF001-00179220546295592", "VF001-00179220546295592"};/*Arreglo de apoyo que conecta a los arreglos de los datos del cliente con
 los arreglos de los productos que se compran y venden */
-        String[] CodProductos = {"C0001", "C0002", "N0003", "N0004", "N0006", "N0007", "F0009", "F0010", "F0011", "F0012", "F0013", "F0014"};
-        String[] DescripcionCod = {"CEMENTO ANDINO TIPO 1", "CEMENTO SOL TIPO 1", "CLAVO ALBAÑIL CON CABEZA 2 1/2 X 1 KG- PRODAC",
-                "CLAVO ALBAÑIL CON CABEZA 2 X 1 KG- PRODAC", "CLAVO ALBAÑIL CON CABEZA 3 X 1 KG- PRODAC", "CLAVO ALBAÑIL CON CABEZA 4 X 1 KG- PRODAC",
-                "FIERRO DE 1/2 ACEROS AREQUIPA", "FIERRO DE 3/8 ACEROS AREQUIPA", "FIERRO DE 4.7MM ACEROS AREQUIPA", "FIERRO DE 5/8 ACEROS AREQUIPA",
-                "FIERRO DE 6MM ACEROS AREQUIPA", "FIERRO DE 8MM ACEROS AREQUIPA"};
+        //String[] CodProductos = {"C0001", "C0002", "N0003", "N0004", "N0006", "N0007", "F0009", "F0010", "F0011", "F0012", "F0013", "F0014"};
+        /*String[] DescripcionCod = {"CEMENTO ANDINO TIPO 1", "CEMENTO SOL TIPO 1", "CLAVO ALBAÑIL CON CABEZA 2 1/2 X 1 KG- PRODAC","CLAVO ALBAÑIL CON CABEZA 2 X 1 KG- PRODAC", "CLAVO ALBAÑIL CON CABEZA 3 X 1 KG- PRODAC", "CLAVO ALBAÑIL CON CABEZA 4 X 1 KG- PRODAC","FIERRO DE 1/2 ACEROS AREQUIPA", "FIERRO DE 3/8 ACEROS AREQUIPA", "FIERRO DE 4.7MM ACEROS AREQUIPA", "FIERRO DE 5/8 ACEROS AREQUIPA","FIERRO DE 6MM ACEROS AREQUIPA", "FIERRO DE 8MM ACEROS AREQUIPA"};*/
 
         //Metodo para la busqueda de informacion de una factura segun su numero
 
-        String ConsultaFactura = "";
+        String ConsultaFactura ;
         System.out.println("Ingrese el numero de factura : ");
         ConsultaFactura = SC.nextLine();
         String[] InfoFactura = DetInfoFactura(ConsultaFactura, TipoFactura, NumeroFactura, FechaFactura, RUC, NombreProveedorOCliente, Auxiliar, DescripcionProducto, CantidadProducto, ImporteProductoSinIGV);
@@ -86,7 +83,7 @@ los arreglos de los productos que se compran y venden */
         int ContadorAux2 = 0;
         for (int n = 0; n < auxiliar.length; n++) {
             if (consultaFactura.equals(auxiliar[n].substring(1, 12))) {
-                InfoFactura2[ContadorAux2] = String.format("" + "- " + descripcionProducto[n] + "  ||  " + cantidadProducto[n] + "  ||  " + importeProductoSinIGV[n] + "  ||  " +"%.2f"+"%n",importeProductoSinIGV[n]*1.18);
+                InfoFactura2[ContadorAux2] = String.format("- " + descripcionProducto[n] + "  ||  " + cantidadProducto[n] + "  ||  " + importeProductoSinIGV[n] + "  ||  " +"%.2f"+"%n",importeProductoSinIGV[n]*1.18);
                 ContadorAux2++;
             }
         }
